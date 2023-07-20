@@ -1,0 +1,91 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-in-docker
+{
+	"name": "TeX in Docker",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			"IMAGE": "mcr.microsoft.com/devcontainers/base:bullseye"
+		}
+	},
+
+	"mounts": [
+		{
+			"source": "${localWorkspaceFolder}/.devcontainer/mounts/.bash_aliases-in",
+			"target": "/home/vscode/.bash_aliases",
+			"type": "bind"
+		},
+		{
+			"source": "${localWorkspaceFolder}/.devcontainer/mounts/~/.bash_history",
+			"target": "/home/vscode/.bash_history",
+			"type": "bind"
+		},
+		{
+			"source": "profile-tex-home-vscode",
+			"target": "/home/vscode",
+			"type": "volume"
+		},
+		{
+			"source": "",
+			"target": "/home/vscode/.vscode-server",
+			"type": "volume"
+		},
+		{
+			"source": "profile-tex-root",
+			"target": "/root",
+			"type": "volume"
+		},
+		{
+			"source": "",
+			"target": "/root/.vscode-server",
+			"type": "volume"
+		}
+	],
+
+	"features": {
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {
+			"installDockerBuildx": true,
+			"version": "latest",
+			"dockerDashComposeVersion": "none"
+		}
+	},
+
+	"initializeCommand": "cd .devcontainer/commands && bash initializeCommand",
+	"onCreateCommand": "cd .devcontainer/commands && bash onCreateCommand",
+	"updateContentCommand": "cd .devcontainer/commands && bash updateContentCommand",
+	"postCreateCommand": "cd .devcontainer/commands && bash postCreateCommand",
+	"postStartCommand": "cd .devcontainer/commands && bash postStartCommand",
+	"postAttachCommand": "cd .devcontainer/commands && bash postAttachCommand",
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"medo64.render-crlf",
+				"James-Yu.latex-workshop"
+			],
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "bash",
+				"terminal.integrated.profiles.linux":{
+					"bash": {
+						"path": "bash",
+						"icon": "terminal-bash"
+					},
+					"zsh": {
+						"path": "zsh"
+					},
+					"fish": {
+						"path": "fish"
+					},
+					"tmux": {
+						"path": "tmux",
+						"icon": "terminal-tmux"
+					},
+					"pwsh": {
+						"path": "pwsh",
+						"icon": "terminal-powershell"
+					}
+				}
+			}
+		}
+	}
+}

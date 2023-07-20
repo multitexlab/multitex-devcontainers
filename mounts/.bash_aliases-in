@@ -1,0 +1,26 @@
+alias d='docker'
+
+alias texlive='docker run -ti \
+  -v texlive:/texlive/.texlive \
+  -v /$(pwd):/texlive/work \
+  -w //texlive/work  \
+  texlive/texlive'
+# Usage: texlive pdflatex main.tex
+# Usage: texlive xelatex mainx.tex
+# Default: texlive sh
+
+alias miktex='docker run -ti \
+  -v miktex:/miktex/.miktex \
+  -v `pwd`:/miktex/work \
+  miktex/miktex'
+# Usage: miktex pdflatex main.tex
+# Usage: miktex xelatex mainx.tex
+# Default: miktex sh
+
+alias tinytex='docker run -ti \
+  -v `pwd`:/tinytex/work \
+  -w //tinytex/work  \
+  tinytex'
+# Usage: tinytex pdflatex main.tex
+# Usage: tinytex xelatex mainx.tex
+# Default: tinytex sh

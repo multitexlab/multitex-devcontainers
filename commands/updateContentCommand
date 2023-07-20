@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "updateContentCommand starting..."
+
+echo "updateContentCommand finished."

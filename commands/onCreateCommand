@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "onCreateCommand starting..."
+
+echo "onCreateCommand finished."

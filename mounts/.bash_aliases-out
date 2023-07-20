@@ -1,0 +1,32 @@
+alias d='docker'
+
+alias texlive='docker run -ti \
+  -v texlive:/texlive/.texlive \
+  -v $LOCAL_WORKSPACE_FOLDER${PWD/#"$CONTAINER_WORKSPACE_FOLDER"}:/texlive/work \
+  -w //texlive/work  \
+  texlive/texlive'
+# Usage: texlive pdflatex main.tex
+# Usage: texlive xelatex mainx.tex
+# Default: texlive sh
+
+alias miktex='docker run -ti \
+  -v miktex:/miktex/.miktex \
+  -v $LOCAL_WORKSPACE_FOLDER${PWD/#"$CONTAINER_WORKSPACE_FOLDER"}:/miktex/work \
+  miktex/miktex'
+# Usage: miktex pdflatex main.tex
+# Usage: miktex xelatex mainx.tex
+# Default: miktex sh
+
+# alias tinytex1='docker run -ti \
+#  -v $LOCAL_WORKSPACE_FOLDER${PWD/#"$CONTAINER_WORKSPACE_FOLDER"}:/tinytex/work \
+#  -w //tinytex/work  \
+#  edgriebel/tinytex-xelatex-alpine:20210511'
+alias tinytex='docker run -ti \
+  -v $LOCAL_WORKSPACE_FOLDER${PWD/#"$CONTAINER_WORKSPACE_FOLDER"}:/tinytex/work \
+  -w //tinytex/work  \
+  tinytex'
+# Usage: tinytex pdflatex main.tex
+# Usage: tinytex xelatex mainx.tex
+# Default: tinytex sh
+
+# tinytex tlmgr install tex-gyre

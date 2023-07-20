@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "postCreateCommand starting..."
+
+docker --version
+docker buildx version
+
+cd ../tinytex
+docker build -t tinytex .
+
+echo "postCreateCommand finished."

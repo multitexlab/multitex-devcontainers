@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "postAttachCommand starting..."
+
+echo "postAttachCommand finished."

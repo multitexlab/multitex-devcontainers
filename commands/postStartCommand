@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo "postStartCommand starting..."
+
+docker --version
+docker buildx version
+
+# alias
+# miktex pdflatex --version
+# texlive pdflatex --version
+# tinytex pdflatex --version
+
+echo "postStartCommand finished."
