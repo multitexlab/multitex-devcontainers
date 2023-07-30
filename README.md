@@ -1,5 +1,8 @@
 # multitex-devcontainer
 
+This is a set of devcontainers that allow working with multiple implementations 
+of tex stack.
+
 ##
 
 ```
